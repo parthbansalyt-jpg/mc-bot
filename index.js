@@ -5,7 +5,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'voidmcnetwork.falixsrv.me',
     port: 28350,
-    username: 'AFK_Bot'
+    username: 'ServerBot67'
   })
 
   bot.on('spawn', () => {
