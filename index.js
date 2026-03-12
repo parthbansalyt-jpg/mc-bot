@@ -5,7 +5,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     host: 'voidmcnetwork.falixsrv.me',
     port: 28350,
-    username: 'ServerKeeperBot',
+    username: 'ServerBot69',
     auth: 'offline' // remove if your server is premium
   })
 
