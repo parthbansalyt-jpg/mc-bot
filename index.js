@@ -1,32 +1,29 @@
 const mineflayer = require('mineflayer')
 
-function startBot() {
+const bot = mineflayer.createBot({
+  host: 'voidmcnetwork.falixsrv.me',
+  port: 28350,
+  username: 'ServerBot1'
+})
 
-  const bot = mineflayer.createBot({
-    host: 'voidmcnetwork.falixsrv.me',
-    port: 28350,
-    username: 'ServerBot69',
-    auth: 'offline' // remove if your server is premium
-  })
+const password = "afkbot"
 
-  bot.on('spawn', () => {
-    console.log('Bot joined the server')
+bot.on('spawn', () => {
+  console.log("Bot joined")
 
-    // Anti-AFK jump every 30 seconds
-    setInterval(() => {
-      bot.setControlState('jump', true)
-      setTimeout(() => bot.setControlState('jump', false), 500)
-    }, 30000)
-  })
+  setTimeout(() => {
+    bot.chat(`/login ${password}`)
+  }, 4000)
+})
 
-  bot.on('end', () => {
-    console.log('Bot disconnected. Reconnecting in 15 seconds...')
-    setTimeout(startBot, 15000)
-  })
+bot.on('messagestr', (msg) => {
 
-  bot.on('error', (err) => {
-    console.log('Error:', err)
-  })
-}
+  if (msg.includes("register")) {
+    bot.chat(`/register ${password} ${password}`)
+  }
 
-startBot()
+  if (msg.includes("login")) {
+    bot.chat(`/login ${password}`)
+  }
+
+})
